@@ -4,7 +4,7 @@
 .
 ├── lib/                       <-- Main architecture
 │   ├── .env.tmp               <-- Environment
-│   └── cdk-stack.ts           <-- Define `vpc`, `vpnEndpoint`, `vpnAssociation`
+│   └── cdk-stack.ts           <-- Define `vpc`, `vpnEndpoint`, `vpnAssociation`, `vpnAuthorization`, `EC2 instance`
 └── bin/                       
 ```
 
