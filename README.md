@@ -24,12 +24,11 @@
 1. `cdk deploy`
 2. deploy done will get 
     - CdkStack.PingMeIP
-    - CdkStack.vpnEndpoint
+    - CdkStack.VpnEndpointID : `export VpnEndpointID=...`
 
 ## 3. AWS VPN CLIENT
 1. Download client from `https://aws.amazon.com/vpn/client-vpn-download/`
-2. `aws ec2 export-client-vpn-client-configuration --client-vpn-endpoint-id $Endpoint_ID --output text > vpn_config_filename.ovpn`
-    - replace **$Endpoint_ID**
+2. `aws ec2 export-client-vpn-client-configuration --client-vpn-endpoint-id $VpnEndpointID --output text > vpn_config_filename.ovpn`
 3. Update the `vpn_config_filename.ovpn`, To add the client certificate and key information (mutual authentication)
     - refer link : `https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-endpoints.html#cvpn-working-endpoint-export`
 4. Connect using an OpenVPN client

@@ -40,7 +40,7 @@ export class CdkStack extends cdk.Stack {
     })
 
     // create vpn endpoint
-    const vpnEndpoint = new ec2.CfnClientVpnEndpoint(this, 'Endpoint', {
+    const vpnEndpoint = new ec2.CfnClientVpnEndpoint(this, 'VpnEndpoint', {
       authenticationOptions: [
         {
           type: 'certificate-authentication',
@@ -66,13 +66,13 @@ export class CdkStack extends cdk.Stack {
     })
 
     // build VpnEndpoint authorization
-    const vpnAuthorization = new ec2.CfnClientVpnAuthorizationRule(this, 'vpnAuthorization', {
+    const vpnAuthorization = new ec2.CfnClientVpnAuthorizationRule(this, 'VpnAuthorization', {
       clientVpnEndpointId: vpnEndpoint.ref,
       targetNetworkCidr: vpc.vpcCidrBlock,
       authorizeAllGroups: true
     })
     //
-    new CfnOutput(this, 'vpnEndpointID', {value: vpnEndpoint.ref})
+    new CfnOutput(this, 'VpnEndpointID', {value: vpnEndpoint.ref})
 
     /* 
     Build EC2 for test
