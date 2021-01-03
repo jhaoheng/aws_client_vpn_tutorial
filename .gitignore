@@ -10,3 +10,4 @@ cdk.out
 # env
 envs/.env
 *.ovpn
+aws_vpn_key
