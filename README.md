@@ -18,7 +18,7 @@
 
 1. Follow the link's step
 2. Only need to **Upload the server certificate**, and then get **AcmArn**
-3. Change the `./lib/.env.tmp` to `.env` and fill up the **AcmArn**
+3. Copy the `./envs/.env.tmp` to `./envs/.env` and fill up the **AcmArn**
 
 ## 2. CDK Deploy
 1. `cdk deploy`

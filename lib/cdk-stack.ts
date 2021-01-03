@@ -2,14 +2,7 @@ import { CfnEC2Fleet } from '@aws-cdk/aws-ec2';
 import * as cdk from '@aws-cdk/core';
 import * as ec2 from '@aws-cdk/aws-ec2'
 import { CfnOutput } from '@aws-cdk/core';
-import * as dotenv from "dotenv";
-
-/*
-server cert - 
-generate acmArn, refer : https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#mutual
- */
-dotenv.config();
-export const acmArn = process.env.acmArn!;
+import { localEnvs } from '../bin/cdk';
 
 export class CdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -45,7 +38,7 @@ export class CdkStack extends cdk.Stack {
         {
           type: 'certificate-authentication',
           mutualAuthentication: {
-            clientRootCertificateChainArn: acmArn
+            clientRootCertificateChainArn: localEnvs.acmArn
           }
         }
       ],
@@ -53,7 +46,7 @@ export class CdkStack extends cdk.Stack {
       connectionLogOptions: {
         enabled: false
       },
-      serverCertificateArn: acmArn,
+      serverCertificateArn: localEnvs.acmArn,
       splitTunnel: true // for do not want all user traffic to route through the Client VPN endpoint.
     })
 
