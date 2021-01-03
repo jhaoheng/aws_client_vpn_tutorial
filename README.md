@@ -35,6 +35,13 @@
     - `https://docs.aws.amazon.com/vpn/latest/clientvpn-user/client-vpn-connect-macos.html`
 5. Test PING EC2 Private IP
 
+## AWS Client VPN APP troubleshooting
+> https://docs.aws.amazon.com/vpn/latest/clientvpn-user/macos-troubleshooting.html
+
+- Logs at `~/.config/AWSVPNClient/logs/`
+- [ERR] Exception recieved by connection view controller
+    - Check that there are no other OpenVPN applications running on your computer. `ps aux | grep vpn`
+
 ## Note
 - AWS Client VPN, **The self-service portal** is not available for clients that authenticate using mutual authentication.
 - If VPC **maxAzs: 1**, it will get fail to ping EC2
